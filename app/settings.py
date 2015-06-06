@@ -1,3 +1,4 @@
+#encoding: UTF-8
 """
 Django settings for app project.
 
@@ -24,12 +25,11 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
 INSTALLED_APPS = (
+    'app.mod',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,19 +56,53 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'test',                      # Or path to database file if using sqlite3.
+            # The following settings are not used with sqlite3:
+            'USER': 'db_admin',
+            'PASSWORD': '4621229',
+            'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+            # TODO УСТАНОВЛЕН ДРУГОЙ ПОРТ ДЛЯ ЛОКАЛЬНОГО СЕРВЕРА!!!!
+            'PORT': '5433',                      # !!!! Set to empty string for default. !!!!
+            'CONN_MAX_AGE': None
+            #'ATOMIC_REQUESTS': True
+            #'AUTOCOMMIT': False
+        },
     }
-}
+
+    ALLOWED_HOSTS = ["localhost","127.0.0.1"]
+
+    TIME_ZONE = 'Asia/Yekaterinburg'
+
+    MEDIA_ROOT = '/var/www/media/'
+    MEDIA_URL = ''
+    STATIC_ROOT = '/var/www/static/'
+    STATIC_URL = '/static/'
+
+else:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'test',                      # Or path to database file if using sqlite3.
+            # The following settings are not used with sqlite3:
+            'USER': 'db_admin',
+            'PASSWORD': 'd_4621229RU*',
+            'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+            # TODO УСТАНОВЛЕН ДРУГОЙ ПОРТ ДЛЯ ЛОКАЛЬНОГО СЕРВЕРА!!!!
+            'PORT': '',                      # !!!! Set to empty string for default. !!!!
+            'CONN_MAX_AGE': 180
+        },
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'ru'
 
 USE_I18N = True
 
