@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from .debug import _DEBUG
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -21,7 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'kye%8taq%oqtx^+8c#1w1!3@(6cvl!1&==8fayyq3x0+cq(d9f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = _DEBUG
+print DEBUG
 
 DEV_SERVER = True
 CELERY = False
