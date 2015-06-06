@@ -6,7 +6,8 @@ from django.db import models
 
 class CarModel(models.Model):
 
-    nam = models.CharField(default="",max_length=100)
+    nam = models.CharField(default="",max_length=150)
+    price = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.nab
