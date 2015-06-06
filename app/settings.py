@@ -23,6 +23,9 @@ SECRET_KEY = 'kye%8taq%oqtx^+8c#1w1!3@(6cvl!1&==8fayyq3x0+cq(d9f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+DEV_SERVER = True
+CELERY = False
+
 TEMPLATE_DEBUG = True
 
 
