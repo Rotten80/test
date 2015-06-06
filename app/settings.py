@@ -118,3 +118,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+APP_SETTINGS = {"a":1,"b":2}
